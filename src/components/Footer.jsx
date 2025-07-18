@@ -35,19 +35,36 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-medium mb-3">Connect</h3>
           <div className="flex space-x-4 text-lg">
-            <a href="#" className="hover:text-yellow-300 transition" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/dev_mubeen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-yellow-300 transition"
+              aria-label="Instagram"
+            >
               <FaInstagram />
             </a>
-            <a href="#" className="hover:text-yellow-300 transition" aria-label="Twitter">
+            <a
+              href="https://twitter.com/Dev_Mubeen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-yellow-300 transition"
+              aria-label="Twitter"
+            >
               <FaTwitter />
             </a>
-            <a href="mailto:echoes@madinah.com" className="hover:text-yellow-300 transition" aria-label="Email">
+            <a
+              href="mailto:doyinspace@gmail.com"
+              className="hover:text-yellow-300 transition"
+              aria-label="Email"
+            >
               <FaEnvelope />
             </a>
           </div>
         </div>
       </div>
 
+      {/* Copyright */}
       <div className="border-t border-white/20 mt-10 pt-6 text-center text-sm">
         &copy; {new Date().getFullYear()} Echoes of Madinah. All rights reserved.
       </div>
