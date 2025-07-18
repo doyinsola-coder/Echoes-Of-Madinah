@@ -7,6 +7,9 @@ import QuizPage from './pages/QuizPage';
 import TimelinePage from './pages/TimelinePage';
 import SeerahPage from './pages/SeerahPage';
 import ReflectionsPage from './pages/ReflectionsPage';
+import About from './pages/About';
+import Support from './pages/Support';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   
@@ -21,6 +24,9 @@ function App() {
         <Route path="/timeline" element={<TimelinePage />} />
         <Route path="/seerah" element={<SeerahPage />} />
         <Route path="/reflections" element={<ReflectionsPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
 
         {/* Add more routes as needed */}
         {/* Example: <Route path="/about" element={<AboutPage />} /> */}
