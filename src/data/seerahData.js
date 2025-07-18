@@ -33,7 +33,7 @@ export const seerahEvents = [
         id: 6,
         title: "Fiqh made easy",
         description: "A simplified guide to essential Islamic rulings on worship, transactions, and daily life, made easy for every Muslim to understand.",
-        pdf: "public/assets/seerah/Fiqh Made Easy.pdf",
+        pdf: "/assets/seerah/Fiqh Made Easy.pdf",
     },
    
 ];
