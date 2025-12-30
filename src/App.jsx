@@ -10,6 +10,8 @@ import ReflectionsPage from './pages/ReflectionsPage';
 import About from './pages/About';
 import Support from './pages/Support';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import IslamicMonthsPage from './pages/IslamicMonthsPage';
+import AdabAkhlaqPage from './pages/AdabandAkhlaq';
 
 function App() {
   
@@ -27,6 +29,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/support" element={<Support />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/months" element={<IslamicMonthsPage />} />
+        <Route path="/adab" element={<AdabAkhlaqPage />} />
 
         {/* Add more routes as needed */}
         {/* Example: <Route path="/about" element={<AboutPage />} /> */}
