@@ -301,7 +301,7 @@ const adabAkhlaqData = [
   }
 ];
 
-const PersonCard = ({ person, index }) => {
+const PersonCard = ({ person, index, isProphetEtiquette = false }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const isProphet = person.category === "Prophet Muhammad ﷺ";
 
@@ -310,17 +310,23 @@ const PersonCard = ({ person, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className={`bg-white rounded-2xl shadow-xl overflow-hidden ${isProphet ? 'border-4 border-amber-400' : ''}`}
+      className={`bg-white rounded-2xl shadow-xl overflow-hidden ${isProphet ? 'border-4 border-amber-400' : isProphetEtiquette ? 'border-2 border-amber-300' : ''}`}
     >
       {/* Header */}
       <div
-        className={`${isProphet ? 'bg-amber-500' : 'bg-emerald-600'} p-6 cursor-pointer hover:opacity-90 transition-opacity`}
+        className={`${isProphet ? 'bg-amber-500' : isProphetEtiquette ? 'bg-amber-400' : 'bg-emerald-600'} p-6 cursor-pointer hover:opacity-90 transition-opacity`}
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="bg-white/20 p-3 rounded-full">
-              {isProphet ? <Star className="w-8 h-8 text-white fill-white" /> : <Users className="w-6 h-6 text-white" />}
+              {isProphet ? (
+                <Star className="w-8 h-8 text-white fill-white" />
+              ) : isProphetEtiquette ? (
+                <Sparkles className="w-6 h-6 text-white" />
+              ) : (
+                <Users className="w-6 h-6 text-white" />
+              )}
             </div>
             <div>
               <h3 className="text-2xl font-bold text-white">{person.name}</h3>
@@ -392,6 +398,7 @@ const PersonCard = ({ person, index }) => {
 
 const AdabAkhlaqPage = () => {
   const prophet = adabAkhlaqData.filter(p => p.category === "Prophet Muhammad ﷺ");
+  const prophetEtiquettes = adabAkhlaqData.filter(p => p.category === "Prophet's Etiquettes");
   const companions = adabAkhlaqData.filter(p => p.category === "Companions");
 
   return (
@@ -420,7 +427,7 @@ const AdabAkhlaqPage = () => {
           </h1>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Learn from the exemplary character of Prophet Muhammad ﷺ and his noble companions. 
+            Learn from the exemplary character and daily etiquettes of Prophet Muhammad ﷺ and his noble companions. 
             Discover the virtues that made them lights of guidance for humanity.
           </p>
 
@@ -448,6 +455,27 @@ const AdabAkhlaqPage = () => {
           {prophet.map((person, index) => (
             <PersonCard key={person.id} person={person} index={index} />
           ))}
+        </div>
+
+        {/* Prophet's Etiquettes Section */}
+        <div className="mb-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <Sparkles className="w-8 h-8 text-amber-500" />
+            <h2 className="text-3xl font-bold text-gray-800">The Prophet's Daily Etiquettes</h2>
+          </motion.div>
+          <p className="text-gray-600 mb-6 text-lg">
+            Learn the beautiful manners and habits of Prophet Muhammad ﷺ in his daily life - how he ate, slept, walked, dressed, and interacted with people.
+          </p>
+          <div className="space-y-6">
+            {prophetEtiquettes.map((person, index) => (
+              <PersonCard key={person.id} person={person} index={index} isProphetEtiquette={true} />
+            ))}
+          </div>
         </div>
 
         {/* Companions Section */}
